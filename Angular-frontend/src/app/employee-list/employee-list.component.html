@@ -1,1 +1,20 @@
-<p>employee-list works!</p>
+<h2 class="text-center my-4"> Employees Table</h2>
+
+<table class="table table-dark table-striped text-center">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">first_name</th>
+        <th scope="col">last_name</th>
+        <th scope="col">email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees"> <!-- using *ngFor directive and {{}} which is called interpolation -->
+        <th scope="row">{{employee.id}}</th>
+        <td>{{employee.firstName}}</td>
+        <td>{{employee.lastName}}</td>
+        <td>{{employee.emailId}}</td>
+      </tr>
+    </tbody>
+  </table>
