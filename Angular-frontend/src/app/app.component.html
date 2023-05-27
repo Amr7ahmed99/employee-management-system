@@ -1,9 +1,25 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a 
+            routerLink="employees"  
+            routerLinkActive="active"
+            class="nav-link navbar-brand align-text-center"
+        >
+            <img src="../assets/images/employees.png" alt="" width="50" height="50" class="d-inline-block ">
+            Employees List
+        </a>
+        </div>
+</nav>
+
 <h1 class="text-center text-success"> {{title}} </h1>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <app-employee-list></app-employee-list>
-        </div>
-    </div>
+<div class="main-content container">
+    <router-outlet></router-outlet>
 </div>
+
+
+<footer class="footer bg-dark text-light">
+    <div class="container">
+        <h3 class=" text-center p-2">All Rights Reserved 2023 @AMR-AHMED</h3>
+    </div>
+</footer>
