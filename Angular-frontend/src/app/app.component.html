@@ -1,25 +1,53 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a 
-            routerLink="employees"  
-            routerLinkActive="active"
-            class="nav-link navbar-brand align-text-center"
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <ul class="d-flex justify-content-start m-auto align-items-center w-100 list-unstyled">
+      <li class="nav-item px-4">
+        <a
+          routerLink="employees"
+          routerLinkActive="active"
+          class="nav-link navbar-brand align-text-center"
         >
-            <img src="../assets/images/employees.png" alt="" width="50" height="50" class="d-inline-block ">
-            Employees List
+          <img
+            src="../assets/images/employees.png"
+            alt=""
+            width="50"
+            height="50"
+            class="d-inline-block"
+          />
         </a>
-        </div>
+      </li>
+      <li class="nav-item px-4">
+        <a
+          routerLink="employees"
+          routerLinkActive="active"
+          class="nav-link align-text-center text-light"
+        >
+          Employees List
+        </a>
+      </li>
+      <li class="nav-item px-4">
+        <a
+          routerLink="create-employees"
+          class="nav-link text-light align-text-center"
+          >Add Employee</a
+        >
+      </li>
+    </ul>
+    
+  </div>
 </nav>
 
-<h1 class="text-center text-success"> {{title}} </h1>
-
 <div class="main-content container">
-    <router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-muted text-center p-3">{{title}}</h1>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
 </div>
 
-
 <footer class="footer bg-dark text-light">
-    <div class="container">
-        <h3 class=" text-center p-2">All Rights Reserved 2023 @AMR-AHMED</h3>
-    </div>
+  <div class="container">
+    <h3 class="text-center p-2">All Rights Reserved 2023 @AMR-AHMED</h3>
+  </div>
 </footer>
