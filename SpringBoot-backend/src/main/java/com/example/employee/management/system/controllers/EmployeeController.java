@@ -12,8 +12,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/v1/")
+@RestController
 public class EmployeeController {
 
     @Autowired
@@ -31,8 +32,8 @@ public class EmployeeController {
 
 
     @PostMapping(value = "employees/store")
-    public void insertEmployee(@RequestBody Employee employee){
-        employeeServiceImpl.save(employee);
+    public Employee insertEmployee(@RequestBody Employee employee){
+        return employeeServiceImpl.save(employee);
     }
 
     @DeleteMapping(value = "employees/{id}/delete")
