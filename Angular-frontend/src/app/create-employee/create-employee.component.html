@@ -1,0 +1,47 @@
+<div class="row m-4">
+    <div class="col-md-10 offset-md-1 col-12 offset-0">
+        <form class="form" method="post" (ngSubmit)="this.saveEmployee($event)">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First_Name</label>
+            <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            name="firstName"
+            [ngModelOptions]="{ standalone: true }"
+            [(ngModel)]="this.employeeData.firstName"
+            required
+            />
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last_Name</label>
+            <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            name="lastName"
+            [ngModelOptions]="{ standalone: true }"
+            [(ngModel)]="this.employeeData.lastName"
+            required
+            />
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="emailId"
+            [ngModelOptions]="{ standalone: true }"
+            [(ngModel)]="this.employeeData.emailId"
+            />
+        </div>
+        <button
+            type="submit"
+            class="btn btn-dark"
+        >
+            Submit
+        </button>
+        </form>
+    </div>
+</div>
