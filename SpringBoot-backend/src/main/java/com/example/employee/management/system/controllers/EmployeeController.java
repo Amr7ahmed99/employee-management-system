@@ -4,7 +4,9 @@ package com.example.employee.management.system.controllers;
 import com.example.employee.management.system.models.Employee;
 import com.example.employee.management.system.repositories.EmployeeRepository;
 import com.example.employee.management.system.services.impl.EmployeeServiceImpl;
+import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,18 +28,22 @@ public class EmployeeController {
     }
 
     @GetMapping(value = "employees/{id}")
-    public Optional<Employee> getEmployee(@PathVariable Long id){
-        return employeeServiceImpl.findById(id);
+    public ResponseEntity getEmployee(@PathVariable Long id){
+        Optional<Employee> employee= employeeServiceImpl.findById(id);
+        return employee.isPresent()?
+                ResponseEntity.status(200).body(employee.get()):
+                ResponseEntity.status(401).body("Employee "+id+" not found!!");
     }
 
 
     @PostMapping(value = "employees/store")
-    public Employee insertEmployee(@RequestBody Employee employee){
-        return employeeServiceImpl.save(employee);
+    public ResponseEntity<Employee> insertEmployee(@RequestBody Employee employee){
+        return ResponseEntity.status(200).body(employeeServiceImpl.save(employee));
     }
 
     @DeleteMapping(value = "employees/{id}/delete")
-    public void deleteEmployee(@PathVariable long id){
+    public ResponseEntity<String> deleteEmployee(@PathVariable long id){
         employeeServiceImpl.deleteById(id);
+        return ResponseEntity.status(200).body("Employee "+id+" has been deleted successfully");
     }
 }
